@@ -4,74 +4,72 @@
 # can NOT add arguments to the get_pay and the __str__ methods
 
 
-# ----------------------------------------------------   
 
 class Employee:
-    def __init__(self, name, commission_type = None, number_of_contracts = 0):
+    def __init__(self, name, salary = 0, wage = 0, hours = 0, commission = 0, commissionVal = 0 , bonus =0):
         self.name = name
-        self.commissionType = commission_type #bonus/contract
-		self.numberOfContracts = number_of_contracts # for contract commisions
-        
+        self.salary = salary
+        self.wage = wage
+        self.hours = hours
+        self.commission = commission
+        self.commissionVal = commissionVal
+        self.bonus = bonus
+
+    def commissionType(self):
+        if (self.commission > 0):
+            return f'and receives a commission for {self.commission} contract(s) at {self.commissionVal}/contract'
+        elif (self.bonus > 0):
+            return f'and receives a bonus commission of {self.bonus}'
+        else:
+            return ''
+
+    def contractType(self):
+        if (self.salary > 0):
+            return f'monthly salary of {self.salary}'
+        elif (self.wage > 0):
+            return f'contract of {self.hours} hours at {self.wage}/hour'
+        else:
+            return ''
 
 # depends the type of contract they have and what they have done in the past month
     def get_pay(self):
-        pass
+        return self.salary + (self.wage * self.hours) + self.bonus + (self.commission * self.commissionVal)
     
 # produce a string explaining how the pay has been calculated.
     def __str__(self):
-        return self.name
- 
+        contractType = self.contractType()
+        commissionType = self.commissionType()
+        totalPay = self.get_pay()
+
+        return f'{self.name} works on a {contractType} {commissionType}. Their total pay is {totalPay}.'
+
+
 
 # Billie works on a monthly salary of 4000.  Their total pay is 4000.
-billie = SalaryEmployee('Billie', 4000)
+billie = Employee('Billie', 4000, 0, 0, 0, 0, 0)
 
 # Renee works on a monthly salary of 3000 and receives a commission for 4 contract(s) at 200/contract.  Their total pay is 3800.
-renee = SalaryEmployee('Renee', 300, )
+renee = Employee('Renee', 3000, 0, 0, 4, 200, 0)
 
 # Robbie works on a monthly salary of 2000 and receives a bonus commission of 1500.  Their total pay is 3500.
-robbie = SalaryEmployee('Robbie')     
+robbie = Employee('Robbie', 2000, 0, 0, 0, 0, 1500)
 
 # Jan works on a contract of 150 hours at 25/hour and receives a commission for 3 contract(s) at 220/contract.  Their total pay is 4410.
-jan = HourlyEmployee('Jan')
+jan = Employee('Jan', 0, 150, 25, 3, 220, 0)
 
 # Charlie works on a contract of 100 hours at 25/hour.  Their total pay is 2500.
-charlie = HourlyEmployee('Charlie')
+charlie = Employee('Charlie', 0, 100, 25, 0, 0, 0)
 
 # Ariel works on a contract of 120 hours at 30/hour and receives a bonus commission of 600.  Their total pay is 4200.
-ariel = HourlyEmployee('Ariel')
+ariel = Employee('Ariel', 0, 120, 30, 0, 0, 600)
 
-# ----------------------------------------------------   
+# print(billie.__str__())
+# print(renee.__str__())
+# print(robbie.__str__())
+# print(jan.__str__())
+# print(charlie.__str__())
+# print(ariel.__str__())
 
-class SalaryEmployee(Employee):
-    def __init__(self, name, salary):
-        super().__init__(self, name)
-        self.salary = salry
-        
-        
-        
-        # depends the type of contract they have and what they have done in the past month
-        def get_pay(self):
-			totalPay = salry
-			if (commission_type != None && number_of_contracts != 0)
-            	totalPay += 
 
-        # produce a string explaining how the pay has been calculated.
-        def __str__(self):
-            return self.name
-		
-# ----------------------------------------------------   
-        
-class HourlyEmployee(Employee):
-    def __init__(self, name, wage, hours):
-        super().__init__(self, name)
-        self.wage = wage
-        
-        
-        # depends the type of contract they have and what they have done in the past month
-        def get_pay(self):
-            totalPay =  (self.wage * self.hours) + 
 
-        # produce a string explaining how the pay has been calculated.
-        def __str__(self):
-            return self.name
         
