@@ -17,7 +17,7 @@ class Employee:
 
     def commissionType(self):
         if (self.commission > 0):
-            return f'and receives a commission for {self.commission} contract\(s\) at {self.commissionVal}/contract'
+            return f'and receives a commission for {self.commission} contract at {self.commissionVal}/contract'
         elif (self.bonus > 0):
             return f'and receives a bonus commission of {self.bonus}'
         else:
@@ -41,7 +41,7 @@ class Employee:
         commissionType = self.commissionType()
         totalPay = self.get_pay()
 
-        return f'{self.name} works on a {contractType} {commissionType}.\s+Their total pay is {totalPay}.$'
+        return f'{self.name} works on a {contractType} {commissionType}.  Their total pay is {totalPay}.'
 
 
 
