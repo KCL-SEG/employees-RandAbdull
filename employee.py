@@ -40,7 +40,7 @@ class Employee:
         contractType = self.contractType()
         commissionType = self.commissionType()
         totalPay = self.get_pay()
-        return f'{self.name} works on a {contractType}{commissionType}.  Their total pay is {totalPay}.'
+        return f'{self.name} works on a {contractType}{commissionType}. Their total pay is {totalPay}.'
 
 
 
