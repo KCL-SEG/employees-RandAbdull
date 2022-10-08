@@ -40,8 +40,7 @@ class Employee:
         contractType = self.contractType()
         commissionType = self.commissionType()
         totalPay = self.get_pay()
-
-        return f'{self.name} works on a {contractType} {commissionType}.  Their total pay is {totalPay}.'
+        return f'{self.name} works on a {contractType}{commissionType}.  Their total pay is {totalPay}.'
 
 
 
@@ -63,12 +62,12 @@ charlie = Employee('Charlie', 0, 100, 25, 0, 0, 0)
 # Ariel works on a contract of 120 hours at 30/hour and receives a bonus commission of 600.  Their total pay is 4200.
 ariel = Employee('Ariel', 0, 120, 30, 0, 0, 600)
 
-# print(billie.__str__())
-# print(renee.__str__())
-# print(robbie.__str__())
-# print(jan.__str__())
-# print(charlie.__str__())
-# print(ariel.__str__())
+print(billie.__str__())
+print(renee.__str__())
+print(robbie.__str__())
+print(jan.__str__())
+print(charlie.__str__())
+print(ariel.__str__())
 
 
 
