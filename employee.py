@@ -27,7 +27,7 @@ class Employee:
         if (self.salary > 0):
             return f'monthly salary of {self.salary}'
         elif (self.wage > 0):
-            return f'contract of {self.hours} hours at {self.wage}/hour'
+            return f'contract of {self.wage} hours at {self.hours}/hour'
         else:
             return ''
 
